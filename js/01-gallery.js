@@ -45,7 +45,7 @@ const getGalleryItems = galleryItems
   .join("");
 
 getGallery.insertAdjacentHTML("afterbegin", getGalleryItems);
-//Добавляем слушателя(клик на фотографию?)
+//Добавляем слушателя на саму галарею + проверка на то,чтобы работало при клике на фотографию.
 getGallery.addEventListener("click", onParentClick);
 
 function onParentClick(evt) {
