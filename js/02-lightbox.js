@@ -26,18 +26,20 @@ const getGallery = document.querySelector(".gallery");
 const getGalleryItems = galleryItems
   .map(({ preview, original, description }) => {
     console.log(preview);
-    return `<div class="gallery__item">
-              <a class="gallery__link" href="${original}">
+    return `<a class="gallery__item"  href="${original}">
                 <img
                   class="gallery__image"
                   src="${preview}"
-                  data-source="${original}"
                   alt="${description}"
                 />
-              </a>
-          </div>`;
+          </a>`;
   })
   //Перебраный массив соединяем в один массив
   .join("");
 
 getGallery.insertAdjacentHTML("afterbegin", getGalleryItems);
+
+let lightbox = new SimpleLightbox(".gallery .gallery__item", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
