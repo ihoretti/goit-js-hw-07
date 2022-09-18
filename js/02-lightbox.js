@@ -17,3 +17,27 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 console.log(galleryItems);
+
+//Получаем галерею
+const getGallery = document.querySelector(".gallery");
+
+//Перебираем массив с фотографиями которые храняться в галерее
+
+const getGalleryItems = galleryItems
+  .map(({ preview, original, description }) => {
+    console.log(preview);
+    return `<div class="gallery__item">
+              <a class="gallery__link" href="${original}">
+                <img
+                  class="gallery__image"
+                  src="${preview}"
+                  data-source="${original}"
+                  alt="${description}"
+                />
+              </a>
+          </div>`;
+  })
+  //Перебраный массив соединяем в один массив
+  .join("");
+
+getGallery.insertAdjacentHTML("afterbegin", getGalleryItems);
